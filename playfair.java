@@ -169,11 +169,11 @@ public class playfair
     String key = args[2];
     one.playfairMake(regtext, key);
     //one.printCipher();
-    if (mode == "encode"){
+    if (mode.equals("encode") ){
       System.out.println(one.encode());
     }
     else{
       System.out.println(one.decode());
-    }    
+    }
   }
 }
