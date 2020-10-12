@@ -126,12 +126,24 @@ public class playfair
   }
 
   public char [] hshift (int fx, int fy, int sx, int sy, int type){
-    char [] anstext ={cipher[(fy+type)%5][fx],cipher[(sy+type)%5][sx]};
+    int change1 = (fy+type)%5;
+    int change2 = (sy+type)%5;
+    if (change1 < 0){
+      change1 += 5;
+      change2 += 5;
+    }
+    char [] anstext ={cipher[change1][fx],cipher[change2][sx]};
     return anstext;
   }
 
   public char [] vshift (int fx, int fy, int sx, int sy, int type){
-    char [] anstext = {cipher[fy][(fx+type)%5],cipher[sy][(sx+type)%5]};
+    int change1 = (fx+type)%5;
+    int change2 = (sx+type)%5;
+    if (change1 < 0){
+      change1 += 5;
+      change2 += 5;
+    }
+    char [] anstext = {cipher[fy][change1],cipher[sy][change2]};
     return anstext;
   }
 
